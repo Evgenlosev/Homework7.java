@@ -71,9 +71,17 @@ public class ClientHandler {
                     String msg = str.substring(4 + nick.length());
                     myServer.sendMsgToClient(this, nick, msg);
                 }
+                if (str.startsWith("/change")) {
+                    String [] tokens = str.split("\\s");
+                    String nickTo = tokens[1];
+                    if (myServer.changeNick(this.name, nickTo)) {
+                        this.name = nickTo;
+                    }
+                }
                 continue;
             }
-            myServer.broadcastMsg(name + ": " + str);}
+            myServer.broadcastMsg(name + ": " + str);
+        }
     }
 
     public void sendMsg(String msg) {

@@ -52,6 +52,23 @@ public class MyServer {
         }
     }
 
+    public synchronized boolean changeNick(String oldNick, String newNick) {
+        if (authService.nickChange(oldNick, newNick)) {
+            for (ClientHandler o: clients) {
+                if (o.getName().equals(oldNick)) {
+                    o.sendMsg("Ваш ник изменен на: " + newNick);
+                    return true;
+                }
+            }
+        }
+        for (ClientHandler e: clients) {
+            if (e.getName().equals(oldNick)) {
+                e.sendMsg("Ник: " + newNick + " занят");
+            }
+        }
+        return false;
+    }
+
     public synchronized void unsubscribe (ClientHandler o) {
         clients.remove(o);
     }
