@@ -54,6 +54,7 @@ public class BaseAuthService implements AuthService {
 //        entries.add(new Entry("login3", "pass3", "nick3"));
     }
 
+
     @Override
     public String getNickByLoginPass(String login, String pass) {
         for (Entry o : entries) {

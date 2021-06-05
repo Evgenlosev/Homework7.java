@@ -92,6 +92,7 @@ public class ClientHandler {
         }
     }
 
+
     public void closeConnection() {
         myServer.unsubscribe(this);
         myServer.broadcastMsg(name + " вышел из чата");
