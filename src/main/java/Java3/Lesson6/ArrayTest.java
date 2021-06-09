@@ -22,11 +22,11 @@ private ArrayCheck arrayCheck;
 
 
     @ParameterizedTest
-    @MethodSource("dataForsearch4InArray")
+    @MethodSource("dataForSearch4InArray")
     public void testArraySumOperation(int[] array, int[] result) {
         Assertions.assertEquals(result, arrayCheck.search4InArray(array));
     }
-    public static Stream<Arguments> dataForsearch4InArray() {
+    public static Stream<Arguments> dataForSearch4InArray() {
         List<Arguments> out = new ArrayList<>();
         out.add(Arguments.arguments(new int[] { 1, 2, 3, 4, 5, 6, 7}, new int[] {5, 6, 7}));
         out.add(Arguments.arguments(new int[] { 1, 4, 3, 8, 10, 2, 1}, new int[] {3, 8, 10, 2, 1}));
@@ -36,11 +36,11 @@ private ArrayCheck arrayCheck;
     }
 
     @ParameterizedTest
-    @MethodSource("dataForcheckArr")
+    @MethodSource("dataForCheckArr")
     public void testcheckArr(int[] array, boolean result) {
         Assertions.assertEquals(result, arrayCheck.checkArr(array));
     }
-    public static Stream<Arguments> dataForArraycheckArr() {
+    public static Stream<Arguments> dataForCheckArr() {
         List<Arguments> out = new ArrayList<>();
         out.add(Arguments.arguments(new int[] { 1, 1, 1, 4, 4, 1, 4, 4}, true));
         out.add(Arguments.arguments(new int[] { 1, 1, 1, 1, 1}, false));
